@@ -47,6 +47,7 @@ int main()
         // cout<<-1<<"\n";
     // }
     // else cout<<aa<<"\n";
-    cout<<comaa<<"\n"<<aa;
+
+    cout<<"The combinations are "<<comaa<<"\n";
     return 0;
 }
