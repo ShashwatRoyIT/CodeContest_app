@@ -2,8 +2,12 @@
 using namespace std;
 #define lli long long int
 
+
+
+
+// just practicing  
 vector<int>dp(1e4+7,-1);
-int dp2[300][10010];
+int dp2[300][10020];
 int min_coin_req(int amt ,vector<int>&vp){
     if(amt==0){
         return 0;
