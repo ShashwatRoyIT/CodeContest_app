@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CPShow </title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+    <!--     staring the backend -->
+
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            padding: 2rem;
+            margin: 4rem;
+            margin-right: ;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // const api_url = 'https://kontests.net/api/v1/codeforces';
+        // async function getISS() {
+        //     const response = await fetch(api_url);
+        //     const data = await response.json();
+        //     console.log(data);
+        // }
+
+        // getISS();
+
+        const api_url = 'https://kontests.net/api/v1/all';
+        async function getISS() {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            // console.log(data);
+
+            let placehoalder = document.querySelector("#data-output");
+            let placehoalder_not = document.querySelector("#data-output-tw");
+
+            let out = "";
+            let out_not = "";
+            for (let elements of data) {
+                if ((elements.site === 'CodeChef' || elements.site === 'CodeForces' || elements.site === 'AtCoder' || elements.site === 'Kick Start' || elements.site === 'LeetCode') && elements.status != 'CODING') {
+                    if (elements.in_24_hours === 'Yes') {
+                        out += `
+                            <tr>
+                                <td>${elements.name}</td>
+                                <td>${((elements.duration) / 3600).toFixed(2)}</td>
+                                <td>${elements.start_time}</td>
+                                <td>${elements.end_time}</td>
+                                <td>${elements.status}</td>
+                                <td><a href="${elements.url}"> Go to Check </a></td>
+                                <td>${elements.in_24_hours}</td>
+                            </tr>
+                        `;
+                    }
+                    else {
+                        out_not += `
+                            <tr>
+                                <td>${elements.name}</td>
+                                <td>${((elements.duration) / 3600).toFixed(2)}</td>
+                                <td>${elements.start_time}</td>
+                                <td>${elements.end_time}</td>
+                                <td>${elements.status}</td>
+                                <td><a href="${elements.url}"> Go to Check </a></td>
+                                <td>${elements.in_24_hours}</td>
+                            </tr>
+                        `;
+
+                    }
+                }
+            }
+            placehoalder.innerHTML = out;
+            placehoalder_not.innerHTML = out_not;
+
+        }
+
+        getISS();
+
+
+
+
+
+    </script>
+
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="/index.html">CP<span>Show</span></a></div>
+            <ui class="menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/upcoming.html">Upcoming Contest</a></li>
+                <li><a href="/present.html">Present Contest</a></li>
+                <li><a href="/practice.html">Practice</a></li>
+                <li><a href="register.html" id="login">Login/SignUp</a></li>
+            </ui>
+        </div>
+    </nav>
+    <!-- home section start -->
+
+    <div>
+
+        <h2 style="color: white; padding: 3%;">Upcoming Contests of Coding Platforms</h2>
+        <p style="color: white; margin-left: 40px ;">Contest about to begin in next 24 hrs </p>
+
+
+
+
+        <table style="color: white;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Duration</th>
+                    <th>Start_Time</th>
+                    <th>End_Time</th>
+                    <th>Status</th>
+                    <th>URL</th>
+                    <th>In_24_hrs</th>
+                </tr>
+            </thead>
+            <tbody id="data-output">
+
+            </tbody>
+        </table>
+
+        <!-- 
+        <div class="row" style="color: white; padding:30px;">
+            <div class="column" style="color: white;">
+                <div class="card" style="color: white;">
+                    <h3>CodeForces </h3>
+                    <p> Round 334</p>
+                    <p> 02:00 hrs long</p>
+                    <button style="color: whitesmoke;"> Register Now</button>
+                </div>
+            </div>
+
+            <div class="column" style="color: white;">
+                <div class="card" style="color: white;">
+                    <h3>Codechef </h3>
+                    <p> Staters 332</p>
+                    <p> 02:30 hrs long</p>
+                    <button style="color: whitesmoke;"> Register Now</button>
+                </div>
+            </div>
+            <br>
+            <br>
+
+ -->
+        <p style="color: white;margin-left: 40px; padding:20px">Upcoming Contests </p>
+
+
+
+        <table style="color: white;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Duration (Hrs)</th>
+                    <th>Start_Time</th>
+                    <th>End_Time</th>
+                    <th>Status</th>
+                    <th>URL</th>
+                    <th>In_24_hrs</th>
+                </tr>
+            </thead>
+            <tbody id="data-output-tw">
+
+            </tbody>
+        </table>
+        <!--             <div class="column">
+                <div class="card">
+                    <h3>LeetCode </h3>
+                    <p> Weekly starters</p>
+                    <p> 02:30 hrs long</p>
+                    <button style="color: whitesmoke;"> Register Now</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h3>HackerEarth </h3>
+                    <p> Hiring Challenge AWS </p>
+                    <p> 20:30 hrs long</p>
+                    <button style="color: whitesmoke;"> Register Now</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h3>Atcoder </h3>
+                    <p> Challenge -122</p>
+                    <p> 02:00 hrs long</p>
+                    <button style="color: whitesmoke;"> Register Now</button>
+                </div>
+            </div> -->
+
+    </div>
+    <!--     </div>  -->
+
+    <script src="new.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+
+
+</body>
+
+
+
+</html>

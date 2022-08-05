@@ -1,0 +1,368 @@
+*{
+    font-family: "Baloo Tamma 2", cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+   background-image: url("https://images4.alphacoders.com/176/176126.jpg");
+}
+html{
+    font-size: 10px;
+}
+
+
+
+@media(max-width:998px){
+    html{
+        font-size:55%;
+    }
+    #slider{
+        width: 40rem;
+        height: 20rem;
+      
+    }
+    #slider ul li img{
+         width: 40rem;
+        height: 20rem;
+    } 
+}
+@media(max-width:768px){
+    html{
+        font-size:45%;
+    }
+    #slider{
+        width: 40rem;
+        height: 20rem;
+    }
+    #slider ul li img{
+         width: 40rem;
+        height: 20rem;
+    } 
+}
+@media(max-width:400px){
+/*     html{
+        font-size:45%;
+    } */
+    #slider{
+        width: 20rem;
+        height: 10rem;
+    }
+    #slider ul li img{
+         width: 20rem;
+        height: 10rem;
+    } 
+}
+#login{
+  margin-left: 10.0rem;
+  color: violet;
+  
+}
+.max-width{
+    max-width: 130.0rem;
+    padding: 0 8.0rem;
+    margin: auto;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    padding: 3.0rem 0;
+    background: crimson;
+      transition: all 0.3s ease;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+  color: #fff;
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+.navbar.sticky{
+  padding: 15rem 0;
+  background: crimson;
+}
+.navbar .logo a span{
+  color: green;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block
+}
+
+.navbar .menu li a{
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-left: 2.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover{
+  color: yellow;
+}
+
+/* home section styling*/
+
+.home{
+  display: flex;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  min-height: 50.0rem;
+
+}
+.home .max-width{
+margin: auto 0 auto 4.0rem;
+}
+
+.home .home-content .text-1{
+  font-size: 2.8rem;
+}
+
+.home .home-content .text-2{
+font-size: 7.5rem;
+font-weight: 600;
+margin-left: -0.3rem;
+}
+
+.home .home-content .text-3{
+  font-size: 4.0rem;
+  margin: 0.5rem 0;
+}
+
+.home .home-content .text-3 span{
+  color: crimson;
+  font-weight: 50.0rem;
+}
+section{
+  padding: 10.0rem 0;
+}
+
+.about .about-content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.about .title{
+  text-align: center;
+  font-size: 4.0rem;
+  font-weight: 500;
+  margin-bottom: 6.0rem;
+  padding-bottom: 2.0rem;
+}
+
+.about .about-content .left{
+  width: 45%
+}
+.about .about-content .left img{
+  height: 20.0rem;
+  width: 20.0rem;
+}
+
+.about .about-content .right{
+  width: 55%;
+}
+
+.about .about-content .right .text{
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.0rem;
+}
+
+.Education{
+  display: flex;
+  background-image: url("https://blog.prezi.com/wp-content/uploads/2019/03/jason-leung-479251-unsplash.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  min-height: 50.0rem;
+
+}
+
+.Education .max-width{
+margin: auto 0 auto 4.0rem;
+}
+
+.skills .title{
+  text-align: center;
+  font-size: 4.0rem;
+  font-weight: 500;
+  margin-bottom: 6.0rem;
+  padding-bottom: 2.0rem;
+}
+
+.skills{
+  display: flex;
+  background-image: url("https://blog.prezi.com/wp-content/uploads/2019/03/jason-leung-479251-unsplash.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  min-height: 50.0rem;
+
+}
+.loginbox{
+  width: 33.0rem;
+  height: 42.0rem;
+  background-image: url("/iim2.jpg");
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  box-shadow: 0.5rem 1.0rem #888888;
+    font-size: 1.5rem;
+
+}
+
+.loginbox input[type="text"] , .loginbox input[type="password"]
+{
+  border-style : dotted;
+  display: inline-block;
+    color: white;
+  border : 0.2rem solid ;
+  border-color: #0ff;
+  padding: 0.5rem 0.5rem;
+
+
+  border-radius: 1.0rem;
+
+}
+
+.loginbox input[type="submit"]
+{
+  margin-left: 8.0rem;
+  width: 40%;
+
+  border: none;
+  outline: none;
+  height: 4.0rem;
+  background: #fb2525;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.register input[type="button"]
+{
+  margin-left: 4.0rem;
+  width: 20%;
+
+  border: none;
+  outline: none;
+  height: 4.0rem;
+  background: #fb2525;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.register input[type="reset"]
+{
+  margin-left: 4.0rem;
+  width: 20%;
+
+  border: none;
+  outline: none;
+  height: 4.0rem;
+  background: #fb2525;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.skills .max-width{
+margin: auto 0 auto 4.0rem;
+}
+
+
+
+
+#slider {
+/*   position: relative; */
+  width: 80.0rem;
+  height: 40.0rem;
+margin-left: 40.0rem;
+  margin-top: 15.0rem;
+  overflow: hidden;
+  box-shadow: 0 0 3.0rem rgba(0, 0, 0, 0.3);
+}
+#slider ul {
+  position: relative;
+  list-style: none;
+  height: 100%;
+  width: 10000%;
+  padding: 0;
+  margin: 0;
+  transition: all 300ms ease;
+  left: 0;
+}
+#slider ul li {
+  position: relative;
+  height: 100%;
+
+  float: left;
+}
+#slider ul li img{
+  width: 80.0rem;
+  height: 40.0rem;
+}
+#slider #prev, #slider #next {
+  width: 5.0rem;
+  line-height: 5.0rem;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-shadow: 0 0 2.0rem rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%);
+  transition: all 150ms ease;
+}
+
+#slider #prev {
+  left: 1.0rem;
+}
+#slider #next {
+  right: 1.0rem;
+}
+
+#slider #prev:hover, #slider #next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0;
+}
+
+
+ @media all and (max-width:800px) and (min-width:40px){
+    #slider{
+        margin: 0 auto;
+        padding-top: 10.2rem;
+        width: 50rem;
+        height: auto;
+    }
+    #slider ul li img{
+        width: 50rem;
+        padding-top: 10.2rem;
+        height:auto;
+    }
+}
+ 
+@media all and (max-width:600px) and (min-width:20px){
+    #slider{
+        margin: 0 auto;
+        padding-top: 15.2rem;
+        width: 40rem;
+        height: auto;
+    }
+    #slider ul li img{
+        width: 40rem;
+        padding-top: 15.2rem;
+        height:auto;
+    }
+}
+ 
+
+
+

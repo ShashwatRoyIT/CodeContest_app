@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CPShow </title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+    
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+    padding: 2rem;
+    margin: 4rem;
+    margin-right: ;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<body>
+
+
+    <!--     Backend -->
+
+    <script>
+        // const api_url = 'https://kontests.net/api/v1/codeforces';
+        // async function getISS() {
+        //     const response = await fetch(api_url);
+        //     const data = await response.json();
+        //     console.log(data);
+        // }
+
+        // getISS();
+
+        const api_url = 'https://kontests.net/api/v1/codeforces';
+        async function getISS() {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            // console.log(data);
+
+            let placehoalder =document.querySelector("#data-output");
+            let out ="";
+            for(let elements of data ){
+                out+=`
+                    <tr>
+                        <td>${elements.name}</td>
+                        <td>${elements.duration}</td>
+                        <td>${elements.start_time}</td>
+                        <td>${elements.end_time}</td>
+                        <td>${elements.status}</td>
+                        <td>${elements.url}</td>
+                        <td>${elements.in_24_hours}</td>
+                    </tr>
+                `;
+            }
+            placehoalder.innerHTML=out;
+        }
+
+        getISS();
+
+        
+
+
+        
+    </script>
+
+    <nav class="navbar" style="flex-wrap: wrap;">
+        <div class="max-width">
+            <div class="logo"><a href="/index.html">CP<span>Show</span></a></div>
+            <ui class="menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/upcoming.html">Upcoming Contest</a></li>
+                <li><a href="/present.html">Present Contest</a></li>
+                <li><a href="/practice.html">Practice</a></li>
+                <li><a href="register.html" id="login">Login/SignUp</a></li>
+            </ui>
+        </div>
+    </nav>
+    <!-- home section start -->
+    <div id="slider" style="flex-wrap: wrap; justify-content: center;">
+        <ul id="slideWrap">
+
+            <li><img src="/ccf10.jpg" alt="" class="responsive"></li>
+            <li><img src="/cc11.jpg" alt="" class="responsive"></li>
+            <li><img src="/ccf3.png" alt="" class="responsive"></li>
+            <li><img src="/ccf4.png" alt="" class="responsive"></li>
+            <li><img src="/ccf5.jpg" alt="" class="responsive"></li>
+
+        </ul>
+
+        <a id="prev" href="#">&#8810;</a>
+        <a id="next" href="#">&#8811;</a>
+    </div>
+<!-- 
+    <table style="color: white;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Start_Time</th>
+                <th>End_Time</th>
+                <th>Status</th>
+                <th>URL</th>
+                <th>In_24_hrs</th>
+            </tr>
+        </thead>
+        <tbody id="data-output">
+
+        </tbody>
+    </table> -->
+
+
+
+    <script src="new.js"></script>
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+
+
+</body>
+
+
+
+</html>
